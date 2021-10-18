@@ -95,3 +95,9 @@ class Person {
 $hanasa = new Person();
 $hanasa->info();
 ```
+### Constructor
+constructor adalah function yang akan dipanggil saat pertama kali Object dibuat. Mirip seperti di function, kita bisa memberi parameter pada constructor.
+
+
+### Destructor
+Untuk membuat _function destructor_, kita bisa menggunakan nama _function_ `__destruct()`. Khusus untuk _destructor_, kita tidak boleh menambahkan function argument, dalam penggunaan sehari-hari, ini misal cocok untuk menutup koneksi ke database atau menutup proses menulis ke file, sehingga tidak terjadi _memory leak_.
