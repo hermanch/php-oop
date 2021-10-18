@@ -71,7 +71,7 @@ class Person {
 }
 ```
 
-## Constant
+### Constant
 Sebuah variable yang bersifat _immutable_ atau tidak bisa diubah. dulu di php bisa membuat dengan  cara method `define()`.
 
 ```php
@@ -79,4 +79,19 @@ class Person {
 	const MODUL_NAME = "Belajar Php OOP"; //sengaja pakai uppercase supaya keliatan tegas.
 }
 echo Person::MODUL_NAME .PHP_EOL; // cara menggunakannya.
+```
+### self Keyword
+Jika di dalam class (misal di function) kita ingin mengakses constant, kita perlu mengakses menggunakan `NamaClass::NAMA_CONSTANT`, Namun jika di dalam class yang sama, kita bisa menggunakan kata kunci `self::NAMA_CONSTANT` untuk mempermudah.
+
+```php
+class Person {
+	const MODULE_NAME = "Belajar Php OOP";
+
+	function info(){
+		echo "Saya sedang belajar di modul: ". self::MODULE_NAME. PHP_EOL;
+	}
+}
+
+$hanasa = new Person();
+$hanasa->info();
 ```
