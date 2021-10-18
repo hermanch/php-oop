@@ -40,3 +40,33 @@ class Person {
 	var String $negara = "Indonesia";
 }
 ```
+
+### Function
+Selain menambahkan properties, kita juga bisa menambahkan function ke object Cara dengan mendeklarasikan function tersebut di dalam block class. Untuk mengakses function tersebut, kita bisa menggunakan tanda -> dan diikuti dengan nama method nya. Sama seperti mengakses properties.
+```php
+class Person {
+	function hello(string $nama){ // buat function
+		echo "Halo $nama" .PHP_EOL;
+	}
+
+$hanasa = new Person();
+
+$hanasa->hello("hanasa"); // panggil function
+
+```
+### This Keyword
+Saat kita membuat kode di dalam function di dalam class, kita bisa menggunakan kata kunci `this` untuk mengakses object saat ini.
+
+```php
+class Person {
+	var String $nama;
+
+	function hiName(?string $nama) {
+		if (is_null($nama)){
+			echo "Hi, My name is $this->nama" .PHP_EOL; // this keyword
+		} else{
+			echo "Hi $nama, My name is $this->nama "; // this keyword
+		}
+	}
+}
+```
