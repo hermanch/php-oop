@@ -70,3 +70,13 @@ class Person {
 	}
 }
 ```
+
+## Constant
+Sebuah variable yang bersifat _immutable_ atau tidak bisa diubah. dulu di php bisa membuat dengan  cara method `define()`.
+
+```php
+class Person {
+	const MODUL_NAME = "Belajar Php OOP"; //sengaja pakai uppercase supaya keliatan tegas.
+}
+echo Person::MODUL_NAME .PHP_EOL; // cara menggunakannya.
+```

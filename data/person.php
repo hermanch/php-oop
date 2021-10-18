@@ -1,5 +1,7 @@
 <?php 
 class Person {
+	const MODUL_NAME = "Belajar Php OOP";
+
 	var String $nama;
 	var ?String $alamat;
 	var String $negara = "Indonesia";
