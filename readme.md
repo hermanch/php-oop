@@ -174,3 +174,13 @@ use Emp\Code\{FrontEnd as FE, BackEnd, DevOps};
 $FE = new FE();
 $FE->sayHello();
 ```
+### Visiblity
+Visibility / Access modifier adalah kemampuan properties, function dan constant dapat diakses dari mana saja Secara default, properties, function dan constant yang kita buat di dalam class bisa diakses dari mana saja, atau artinya dia adalah public.
+
+| Modifier | Class | Subclass | World |
+|-------|--------|------------|------|
+|Public | Y | Y | Y |
+|Protected | Y | Y | N |
+|Private | Y | N | N |
+
+Buka file `data/Product`
