@@ -153,3 +153,24 @@ namespace Data\One {
 
 echo Data\One\IDENTIFY; //memanggil constant
 ```
+
+### Import
+**use Keyword**, Sebelumnya kita sudah tahu bahwa untuk menggunakan class, function atau constant di namespace kita perlu menyebutkan nama namespace nya di awal. Jika terlalu sering menggunakan class, function atau constant yang sama, maka terlalu banyak duplikasi dengan menyebut namespace yang sama berkali-kali. Hal ini bisa kita hindari dengan cara mengimport class, function atau constant tersebut dengan menggunakan kata kunci **use**.
+
+**Alias** adalah kemampuan membuat nama lain dari class, function atau constant yang adaKita bisa menggunakan kata kunci **as** setelah melakukan **use**.
+
+```php
+use Emp\NonCode\UIDesigner;
+use function Emp\Code\ability as EmpAbility;
+
+$UI = new UIDesigner();
+EmpAbility();
+```
+Kadang kita butuh melakukan import banyak hal di satu namespace yang sama, PHP memiliki fitur grup use, dimana kita bisa import beberapa class, function atau constant dalam satu perintah use.
+```php
+require_once "data/Employers.php";
+use Emp\Code\{FrontEnd as FE, BackEnd, DevOps};
+
+$FE = new FE();
+$FE->sayHello();
+```

@@ -9,6 +9,12 @@ namespace Emp\Code {
 			echo "Halo, saya seorang Front-end Developer". PHP_EOL;
 		}
 	}
+	class BackEnd {
+
+	}
+	class DevOps {
+
+	}
 }
 
 namespace Emp\NonCode {
