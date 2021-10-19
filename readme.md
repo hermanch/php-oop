@@ -184,3 +184,10 @@ Visibility / Access modifier adalah kemampuan properties, function dan constant 
 |Private | Y | N | N |
 
 Buka file `data/Product`
+
+### Function Overriding
+**Function overriding** adalah kemampuan mendeklarasikan ulang function di child class, yang sudah ada di parent class.
+
+### parent Keyword
+Kadang kita ingin mengakses _function_ yang terdapat di class parent yang sudah terlanjur kita override di class child, untuk mengakses function milik class parent, kita bisa menggunakan kata kunci **parent**.
+Buka file `data/Profile.php`.
