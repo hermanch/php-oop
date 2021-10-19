@@ -1,4 +1,5 @@
-![banner php oop](./assets/banner.jpg)
+![banner php oop -- sumber belajar: Programmer Zaman Now](./assets/banner.jpg)
+
 # Belajar OOP PHP
 Object Oriented Programming adalah sudut pandang bahasa pemrograman yang berkonsep “objek”.
 Object adalah data yang berisi field / properties / attributes dan method / function / behavior.
@@ -101,3 +102,54 @@ constructor adalah function yang akan dipanggil saat pertama kali Object dibuat.
 
 ### Destructor
 Untuk membuat _function destructor_, kita bisa menggunakan nama _function_ `__destruct()`. Khusus untuk _destructor_, kita tidak boleh menambahkan function argument, dalam penggunaan sehari-hari, ini misal cocok untuk menutup koneksi ke database atau menutup proses menulis ke file, sehingga tidak terjadi _memory leak_.
+
+### Inheritance
+Inheritance atau pewarisan adalah kemampuan untuk menurunkan sebuah _class_ ke _class_ lain. Dalam artian, kita bisa membuat _class Parent_ dan _class Child_, _Class Child_ hanya bisa punya satu _class Parent_, namun satu _class Parent_ bisa punya banyak _class Child_, Saat sebuah _class_ diturunkan, maka semua _properties_ dan _function_ yang ada di _class Parent_ secara otomatis akan dimiliki oleh _class Child_.
+
+```php
+class UIDesigner {
+	var string $name;
+	var string $skill;
+	function sayHalo($name){
+		echo "Halo $name, nama saya $this->name, saya seorang $this->skill.". PHP_EOL;
+	}
+}
+
+class FEDev extends UIDesigner { // kata kunci extends -> untuk mewarisi.
+
+}
+
+```
+
+### namespace
+Saat kita membuat aplikasi, bisa dipastikan kita akan banyak sekali membuat class, Jika class terlalu banyak, kadang akan menyulitkan kita untuk mencari atau mengklasifikasikan jenis-jenis class. ***Namespace bagus ketika kita punya beberapa class yang sama***, dengan menggunakan namespace nama class sama tidak akan menjadikan error di PHP.
+
+```php
+namespace Data\One {
+	class Person {
+
+	}
+}
+
+namespace Data\Two {
+	class Person { // sama dengan yang diatas
+
+	}
+}
+
+
+$ahan = new Data\One\Person(); // keduanya tidak akan konflik
+$maya = new Data\Two\Person(); // keduanya tidak akan konflik
+```
+Selain **class**, kita juga menggunakan **function** dan **constant** di namespace dan jika kita ingin menggunakan function atau constant tersebut, kita bisa menggunakannya dengan diawali dengan nama namespace nya.
+
+```php
+namespace Data\One {
+	const IDENTIFY = "Saya seorang Karyawan";
+	class Person {
+
+	}
+}
+
+echo Data\One\IDENTIFY; //memanggil constant
+```
