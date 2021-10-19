@@ -14,9 +14,14 @@ class UIDesigner {
 }
 
 class FEDev extends UIDesigner {
+	public function __construct(string $name){
+		parent::__construct($name, "Front-end");
+	}
+
 	function sayHalo($name){
 		echo "Halo $name, saya $this->name, nanti saya akan berkomukasi dengan kamu." .PHP_EOL;
 	}
+
 }
 
  ?>
