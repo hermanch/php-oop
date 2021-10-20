@@ -191,3 +191,42 @@ Buka file `data/Product`
 ### parent Keyword
 Kadang kita ingin mengakses _function_ yang terdapat di class parent yang sudah terlanjur kita override di class child, untuk mengakses function milik class parent, kita bisa menggunakan kata kunci **parent**.
 Buka file `data/Profile.php`.
+
+
+## Polymorphism
+Polymorphism berasal dari bahasa Yunani yang berarti banyak bentuk. Dalam OOP, Polymorphism adalah kemampuan sebuah object berubah bentuk menjadi bentuk lain. Polymorphism erat hubungannya dengan Inheritance.
+
+**Inheritance**
+```php
+class Programmer{
+	public string $name;
+	public function __construct(string $name){
+		$this->name = $name;
+	}
+}
+
+class BackendProgrammer extends Programmer{
+}
+class FrontendProgrammer extends Programmer{
+}
+```
+
+**Polymorphism**
+```php
+class Company{
+	public Programmer $programmer;
+}
+
+$company = new Company();
+$company->programmer = new Programmer("Hanasa");
+$company->programmer = new BackendProgrammer("Tya");
+```
+
+**Function Argument Polymorphism**
+```php
+function sayHelloProgrammer(Programmer $programmer){ //ngambil dari class Programmer sbg argument
+	echo "Hello Programmer $programmer->name" . PHP_EOL;
+}
+
+sayHelloProgrammer(new FrontendProgrammer("Ahan"));
+```
