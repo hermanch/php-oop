@@ -230,3 +230,62 @@ function sayHelloProgrammer(Programmer $programmer){ //ngambil dari class Progra
 
 sayHelloProgrammer(new FrontendProgrammer("Ahan"));
 ```
+
+### Type Check & Casts
+Khusus untuk tipe data object, kita tidak perlu melakukan konversi secara eksplisit. Namun agar aman, sebelum melakukan casts, pastikan kita melakukan type check (pengecekan tipe data), dengan menggunakan kata kunci **instanceof**. Hasil operator **instanceof** adalah _boolean_, true jika tipe data sesuai, false jika tidak sesuai.
+
+```php
+function sayHelloProgrammer(Programmer $programmer){
+	if ( $programmer instanceof BackendProgrammer){ //instanceof
+		echo "Hello Backend Programmer $programmer->name" . PHP_EOL;
+	} elseif ( $programmer instanceof FrontendProgrammer){ //instanceof
+		echo "Hello Frontend Programmer $programmer->name" . PHP_EOL;
+	} else {
+		echo "Hello Programmer $programmer->name" . PHP_EOL;
+	}
+}
+
+```
+### Abstract class
+Abstract class artinya, class tersebut **tidak bisa dibuat sebagai object secara langsung**, hanya bisa diturunkan. Untuk membuat sebuah class menjadi abstract, kita bisa menggunakan kata kunci **abstract** sebelum kata kunci class.
+
+```PHP
+
+abstract class Location{
+	public string $name;
+}
+class City extends Location {
+}
+
+$location = new Location(); //ERROR
+$city = new City();
+$city->name = "Ciamis";
+
+```
+
+### Abstract Function
+Saat kita membuat sebuah abstract function, kita **tidak boleh** membuat block function untuk function tersebut. Artinya, abstract function **wajib** _dioverride_ di class child. Abstract function **tidak boleh** memiliki access modifier private
+
+```php
+abstract class Animal{
+	public string $name;
+	public function __construct(string $name){
+		$this->name = $name;
+	}
+
+	abstract public function run();
+}
+
+class Cat Extends Animal{
+	public function run(){
+		echo "$this->name is running" .PHP_EOL;
+	}
+}
+```
+
+Cara _Runningnya_ sama seperti biasa.
+
+```php
+$cat = new Cat("Sunu");
+$cat->run();
+```

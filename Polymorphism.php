@@ -9,5 +9,6 @@ $company->programmer = new BackendProgrammer("Tya");
 var_dump($company);
 
 sayHelloProgrammer(new FrontendProgrammer("Ahan"));
-
+sayHelloProgrammer(new BackendProgrammer("Satria"));
+sayHelloProgrammer(new Programmer("Wulan"));
  ?>
