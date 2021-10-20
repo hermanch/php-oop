@@ -289,3 +289,11 @@ Cara _Runningnya_ sama seperti biasa.
 $cat = new Cat("Sunu");
 $cat->run();
 ```
+### Getter and Setter
+**Encapsulation** artinya memastikan data sensitif sebuah object tersembunyi dari akses luar. Hal ini bertujuan agar kita bisa menjaga agar data sebuah object tetap baik dan valid. Untuk mencapai ini, biasanya kita akan membuat **semua properties menggunakan access modifier private**, sehingga tidak bisa diakses atau diubah dari luar Agar bisa diubah, kita akan menyediakan function untuk mengubah dan mendapatkan properties tersebut.
+**Getter** adalah function yang dibuat untuk mengambil data field, **Setter** ada function untuk mengubah data field.
+
+| Type Data | Getter Method | Setter Method |
+|-----------|----------------|-------------|
+|bool | `isBool(): bool` | `setBool(bool val)` |
+|lainnya | `getData():typeData` | `setData(typeData val)` |
