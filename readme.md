@@ -297,3 +297,31 @@ $cat->run();
 |-----------|----------------|-------------|
 |bool | `isBool(): bool` | `setBool(bool val)` |
 |lainnya | `getData():typeData` | `setData(typeData val)` |
+
+
+### Interface
+Interface mirip seperti abstract class, yang membedakan adalah di Interface, semua method otomatis abstract, tidak memiliki block, Di interface kita tidak boleh memiliki properties, kita hanya boleh memiliki constant, Untuk mewariskan interface, k**ita menggunakan implements** dan berbeda dengan class, kita bisa implements **lebih dari satu** interface.
+
+### Interface Inheritance
+Sebelumnya kita sudah tahu kalo di PHP, child class hanya bisa punya 1 class parent, Namun berbeda dengan interface, **sebuah child class bisa implement lebih dari 1 interface**, Bahkan **interface pun bisa implement interface lain, bisa lebih dari 1.** Namun jika interface ingin mewarisi interface lain, kita menggunakan kata kunci extends, bukan implements.
+
+```php
+Interface Brand {
+	function nameBrand() :string;
+}
+Interface isMaintenance {
+	function maintenance() :bool;
+}
+Interface Guarante {
+	function getGuarante() : string;
+}
+
+Interface Car extends Guarante {
+	function drive() :void;
+	function getTire() :int;
+}
+
+class Avanza implements Car, Brand, isMaintenance { // ini mempunyai Interface [Car, Brand, Guarante, isMaintenance]
+	//semua function harus dipakai.
+}
+```
