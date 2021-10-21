@@ -325,3 +325,25 @@ class Avanza implements Car, Brand, isMaintenance { // ini mempunyai Interface [
 	//semua function harus dipakai.
 }
 ```
+
+### Trait
+Trait mirip dengan abstract class, kita bisa **membuat** konkrit function atau abstract function. Yang membedakan adalah, di trait bisa kita tambahkan ke dalam class lebih dari satu. Trait mirip seperti ekstension, dimana kita bisa menambahkan konkrit function ke dalam class dengan trait. Secara sederhana **trait adalah digunakan untuk** menyimpan function-function yang bisa digunakan ulang di beberapa class. Untuk menggunakan trait di class, kita bisa menggunakan kata kunci **use**.
+
+```php
+trait GoodBye
+{
+	public function goodBye(?string $name) :void
+	{
+		echo is_null($name) ? "Good Bye Manusia" .PHP_EOL : "Good Bye $name" .PHP_EOL;
+	}
+}
+
+class Manusia
+{
+	use GoodBye; // menggunakan trait.
+}
+
+// cara menggunakan
+$man = new Manusia();
+$man->goodBye("Rina"); // Good Bye Rina
+```
