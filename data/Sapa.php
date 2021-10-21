@@ -22,7 +22,35 @@ trait HasName
 	public string $name;
 }
 
+trait CanFly
+{
+	abstract public function fly() :void;
+}
+
 class Manusia
 {
-	use GoodBye, Hello, HasName;
+	use GoodBye, Hello;
+	public function goodBye(string $name) :void
+	{
+		echo "goodBye $name Manusia" .PHP_EOL;
+	}
+	public function hello(string $name) :void
+	{
+		echo "hello $name Manusia" .PHP_EOL;
+	}
+}
+
+
+class ManusiaSuper extends Manusia
+{
+	use GoodBye, Hello, HasName, CanFly {
+		// ter-overide visiblity levelnya
+		// goodBye as private;
+		// hello as private;
+	}
+
+	public function fly()
+	{
+		echo "I can Fly" .PHP_EOL;
+	}
 }

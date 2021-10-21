@@ -326,7 +326,7 @@ class Avanza implements Car, Brand, isMaintenance { // ini mempunyai Interface [
 }
 ```
 
-### Trait
+## Trait
 Trait mirip dengan abstract class, kita bisa **membuat** konkrit function atau abstract function. Yang membedakan adalah, di trait bisa kita tambahkan ke dalam class lebih dari satu. Trait mirip seperti ekstension, dimana kita bisa menambahkan konkrit function ke dalam class dengan trait. Secara sederhana **trait adalah digunakan untuk** menyimpan function-function yang bisa digunakan ulang di beberapa class. Untuk menggunakan trait di class, kita bisa menggunakan kata kunci **use**.
 
 ```php
@@ -346,4 +346,56 @@ class Manusia
 // cara menggunakan
 $man = new Manusia();
 $man->goodBye("Rina"); // Good Bye Rina
+```
+
+### Trait Overriding
+#### Trait Abstarct Function
+Jika terdapat abstract function di trait, maka secara otomatis **function tersebut harus di override** di class yang menggunakan trait tersebut.
+
+```php
+trait CanFly
+{
+	abstract public function fly() :void;
+}
+class ManusiaSuper
+{
+	use CanFly;
+	public function fly() // override
+	{
+		echo "I can Fly" .PHP_EOL;
+	}
+}
+```
+
+#### Trait Overriding
+Jika sebuah class memiliki parent class yang memiliki function yang sama dengan function di trait, maka secara otomatis trait akan meng-override function tersebut. Namun jika kita membuat function yang sama di class nya, maka secara otomatis kita akan meng-override function di trait. Sehingga posisinya seperti ini *ParentClass =override by=> Trait = override by=> ChildClass*.
+
+```php
+class Manusia
+{
+	use GoodBye, Hello; //trait
+	public function goodBye(string $name) :void
+	{
+		echo "goodBye $name Manusia - override" .PHP_EOL;
+	}
+	public function hello(string $name) :void
+	{
+		echo "hello $name Manusia - override" .PHP_EOL;
+	}
+}
+
+```
+
+#### Trait Visibility Override
+Selain melakukan override function di class, kita juga bisa melakukan override visibility function yang terdapat di trait.
+```php
+class ManusiaSuper extends Manusia
+{
+	use GoodBye, Hello{
+		// ter-overide visiblity levelnya
+		// goodBye as private;
+		// hello as private;
+	}
+}
+
 ```

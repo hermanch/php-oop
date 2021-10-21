@@ -1,11 +1,15 @@
 <?php
 
 require_once 'data/Sapa.php';
-use Sapa\{Manusia, GoodBye, Hello, HasName};
+use Sapa\{Manusia, ManusiaSuper, GoodBye, Hello, HasName};
 
 $man = new Manusia();
-$man->goodBye("Rina");
-$man->hello("Roni");
-$man->name = "Rama";
+$man->goodBye("hoki");
+$man->hello("hoki");
 
-var_dump($man);
+$superman = new ManusiaSuper();
+$superman->goodBye("Leo");
+$superman->hello("John");
+$superman->fly();
+
+// var_dump($man);
