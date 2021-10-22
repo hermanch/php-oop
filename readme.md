@@ -550,3 +550,6 @@ $array = [
 
 $obj = (object) $array;
 ```
+
+### Object Iteration
+Saat kita membuat object dari sebuah class, kita bisa melakukan iterasi ke semua properties yang terdapat di object tersebut menggunakan `foreach`. Secara default, hanya properties yang public yang bisa diakses oleh `foreach`.
