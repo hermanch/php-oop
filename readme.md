@@ -536,3 +536,17 @@ class MathHelper
 $sum = MathHelper::sum(12,3,3);
 echo "$sum" .PHP_EOL;
 ```
+
+### stdClass
+stdClass adalah class kosong bawaan dari PHP, stdClass biasanya digunakan ketika kita **melakukan konversi** dari tipe lain menjadi tipe object. Ini berguna ketika misal kita ingin melakukan konversi dari tipe data array ke object secara otomatis ataupun sebaliknya.
+
+Misal kita ingin mengubah dari array ke object.
+```php
+$array = [
+	"first" => "Ade",
+	"middle" => "Hanasa",
+	"last" => "Sofari"
+];
+
+$obj = (object) $array;
+```
