@@ -514,3 +514,25 @@ $hello = new class("Hanasa") {
 $hello->sayHello();
 
 ```
+
+### static Keyword
+Kata kunci static adalah keyword yang bisa kita gunakan untuk membuat properties atau function di class bisa diakses secara langsung tanpa menginstansiasi class terlebih dahulu. kita bisa menggunakan operator **::** untuk mengakesnya.
+
+```php
+class MathHelper
+{
+	static public string $name;
+	static public function sum(int ...$numbers) :int
+	{
+		$total = 0;
+		foreach ($numbers as $n)
+		{
+			$total += $n;
+		}
+		return $total;
+	}
+}
+
+$sum = MathHelper::sum(12,3,3);
+echo "$sum" .PHP_EOL;
+```
