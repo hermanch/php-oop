@@ -4,16 +4,19 @@ class SocialMedia
 	var string $name;
 }
 
-final class Facebook extends SocialMedia
+class Facebook extends SocialMedia
 {
-
+	final function login() :string {
+		return "Welcome to FB";
+	}
 }
 
 class FakeFacebook extends Facebook
 {
-
+	function login() :string {
+		return "Welcome to FFB";
+	}
 }
 
 $fakeFb = new FakeFacebook();
-$fakeFb->name = "pesbuk";
-var_dump($fakeFb);
+echo $fakeFb->login();

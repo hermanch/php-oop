@@ -478,3 +478,39 @@ class FakeFacebook extends Facebook // tidak bisa diwariskan dari Facebook.
 
 }
 ```
+
+### Final Function
+Kata kunci final juga bisa digunakan di function, jika sebuah function kita tambahkan kata kunci final, maka artinya function tersebut tidak bisa di override lagi di class child nya.
+```php
+class Facebook extends SocialMedia
+{
+	final function login() :string { // karena ini sudah final
+		return "Welcome to FB";
+	}
+}
+
+class FakeFacebook extends Facebook
+{
+	function login() :string {
+		return "Welcome to FFB"; // error
+	}
+}
+```
+
+### Anonymous Class
+Anonymous class atau class tanpa nama adalah kemampuan mendeklarasikan class, sekaligus meng-instansiasi object-nya secara langsung.
+
+```php
+$hello = new class("Hanasa") {
+	var string $name ;
+
+	function __construct($name){
+		$this->name = $name;
+	}
+	function sayHello(){
+		echo "hello $this->name" .PHP_EOL;
+	}
+}; // jangan lupa titik koma (;)
+$hello->sayHello();
+
+```
