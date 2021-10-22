@@ -459,3 +459,22 @@ class ManusiaSuper extends Manusia
 	use All;
 }
 ```
+
+### Final Class
+Kata kunci _final_ bisa digunakan di class, dimana jika kita menggunakan kata kunci _final_ sebelum class, maka kita menandakan bahwa class tersebut **tidak bisa diwariskan lagi** dan secara otomatis semua class child nya akan error.
+```php
+class SocialMedia
+{
+	var string $name;
+}
+
+final class Facebook extends SocialMedia // tidak bisa diwariskan lagi ke turunannya.
+{
+
+}
+
+class FakeFacebook extends Facebook // tidak bisa diwariskan dari Facebook.
+{
+
+}
+```
