@@ -445,3 +445,17 @@ $font = new Font();
 $font->A(); // a
 $font->B(); // B
 ```
+
+### Trait Inheritance
+Trait bisa menggunakan trait lain, mirip seperti interface yang bisa implement interface lain Untuk menggunakan trait lain dari trait, penggunaannya sama seperti dengan penggunaan trait di class.
+```php
+trait All
+{
+	use GoodBye, Hello, HasName, CanFly;
+}
+
+class ManusiaSuper extends Manusia
+{
+	use All;
+}
+```

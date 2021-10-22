@@ -27,6 +27,11 @@ trait CanFly
 	abstract public function fly() :void;
 }
 
+trait All
+{
+	use GoodBye, Hello, HasName, CanFly;
+}
+
 class Manusia
 {
 	use GoodBye, Hello;
@@ -43,11 +48,7 @@ class Manusia
 
 class ManusiaSuper extends Manusia
 {
-	use GoodBye, Hello, HasName, CanFly {
-		// ter-overide visiblity levelnya
-		// goodBye as private;
-		// hello as private;
-	}
+	use All;
 
 	public function fly()
 	{
