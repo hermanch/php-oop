@@ -345,7 +345,7 @@ class Manusia
 
 // cara menggunakan
 $man = new Manusia();
-$man->goodBye("Rina"); // Good Bye Rina
+$man->goodBye("Roni"); // Good Bye Rina
 ```
 
 ### Trait Overriding
@@ -398,4 +398,50 @@ class ManusiaSuper extends Manusia
 	}
 }
 
+```
+
+### Trait Conflict
+Jika kita menggunakan lebih dari satu trait, lalu terdapat function yang sama di trait tersebut maka hal tersebut akan menyebabkan konflik. Jika terjadi konflik seperti ini, kita bisa mengatasinya dengan menggunakan kata kunci **insteadof**.
+
+```php
+// contoh trait
+trait Lower {
+	function A(){
+		echo "a".PHP_EOL;
+	}
+	function B(){
+		echo "b".PHP_EOL;
+	}
+}
+
+trait Upper {
+	function A(){
+		echo "A".PHP_EOL;
+	}
+	function B(){
+		echo "B".PHP_EOL;
+	}
+}
+
+```
+
+```php
+// error
+class Font {
+	use Lower, Upper;
+}
+
+// benar
+class Font {
+	use Lower, Upper {
+		Lower::A insteadof Upper; // function A() dari trait Lower
+		Upper::B insteadof Lower; // funtion B() dari tarit Upper
+	}
+}
+
+
+// sehingga
+$font = new Font();
+$font->A(); // a
+$font->B(); // B
 ```
