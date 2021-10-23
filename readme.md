@@ -460,7 +460,7 @@ class ManusiaSuper extends Manusia
 }
 ```
 
-### Final Class
+## Final Class
 Kata kunci _final_ bisa digunakan di class, dimana jika kita menggunakan kata kunci _final_ sebelum class, maka kita menandakan bahwa class tersebut **tidak bisa diwariskan lagi** dan secara otomatis semua class child nya akan error.
 ```php
 class SocialMedia
@@ -479,7 +479,7 @@ class FakeFacebook extends Facebook // tidak bisa diwariskan dari Facebook.
 }
 ```
 
-### Final Function
+## Final Function
 Kata kunci final juga bisa digunakan di function, jika sebuah function kita tambahkan kata kunci final, maka artinya function tersebut tidak bisa di override lagi di class child nya.
 ```php
 class Facebook extends SocialMedia
@@ -497,7 +497,7 @@ class FakeFacebook extends Facebook
 }
 ```
 
-### Anonymous Class
+## Anonymous Class
 Anonymous class atau class tanpa nama adalah kemampuan mendeklarasikan class, sekaligus meng-instansiasi object-nya secara langsung.
 
 ```php
@@ -515,7 +515,7 @@ $hello->sayHello();
 
 ```
 
-### static Keyword
+## static Keyword
 Kata kunci static adalah keyword yang bisa kita gunakan untuk membuat properties atau function di class bisa diakses secara langsung tanpa menginstansiasi class terlebih dahulu. kita bisa menggunakan operator **::** untuk mengakesnya.
 
 ```php
@@ -537,7 +537,7 @@ $sum = MathHelper::sum(12,3,3);
 echo "$sum" .PHP_EOL;
 ```
 
-### stdClass
+## stdClass
 stdClass adalah class kosong bawaan dari PHP, stdClass biasanya digunakan ketika kita **melakukan konversi** dari tipe lain menjadi tipe object. Ini berguna ketika misal kita ingin melakukan konversi dari tipe data array ke object secara otomatis ataupun sebaliknya.
 
 Misal kita ingin mengubah dari array ke object.
@@ -551,5 +551,32 @@ $array = [
 $obj = (object) $array;
 ```
 
-### Object Iteration
+## Object Iteration
 Saat kita membuat object dari sebuah class, kita bisa melakukan iterasi ke semua properties yang terdapat di object tersebut menggunakan `foreach`. Secara default, hanya properties yang public yang bisa diakses oleh `foreach`.
+
+## Generator
+di PHP terdapat fitur generator, yang bisa kita gunakan untuk membuat Iterator secara otomatis hanya dengan menggunakan kata kunci **yield**.
+```php
+function genap(int $max) :Iterator {
+	$arr = []; // membuat variable array
+	for ($i =1; $i <= $max ; $i++){
+		if ($i % 2 == 0){
+			$arr [] = $i; // memasukan ke variable array
+		}
+	}
+	return new ArrayIterator($arr);
+}
+
+function ganjil(int $max) :Iterator {
+	for ($i =1; $i <= $max ; $i++){ // tanpa membuat variable array
+		if ($i % 2 == 1){
+			yield $i; // hanya menggunakan kata kunci yield
+		}
+	}
+}
+
+// cara menggunkan
+foreach(ganjil(10) as $g) {
+	echo "Ganjil : $g" .PHP_EOL;
+}
+```
