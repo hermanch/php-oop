@@ -587,3 +587,8 @@ Biasanya untuk melakukan hal ini, kita bisa membuat object baru, lalu menyalin s
 $riki = new Student();
 $rikiAdult = clone $riki;
 ```
+
+## Comparing Object
+- Sama seperti tipe data yang lain, untuk membandingkan dua buah object, kita bisa menggunakan operator `== (equals)` dan `=== (identity)`.
+- Operator `== (equals)` membandingkan semua properties yang terdapat di object tersebut, dan tiap properties juga akan dibandingkan menggunakan operator `== (equals)`.
+- Sedangkan operator `=== (identity)`, maka akan membandingkan apakah object identik, artinya mengacu ke object yang sama.
