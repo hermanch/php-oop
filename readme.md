@@ -580,3 +580,10 @@ foreach(ganjil(10) as $g) {
 	echo "Ganjil : $g" .PHP_EOL;
 }
 ```
+## Object Cloning
+Biasanya untuk melakukan hal ini, kita bisa membuat object baru, lalu menyalin semua properties di object awal ke object baru. Jika kita ingin memodifikasi cara PHP melakukan clone, kita bisa membuat function di dalam classnya dengan nama function `__clone()`.
+
+```php
+$riki = new Student();
+$rikiAdult = clone $riki;
+```
